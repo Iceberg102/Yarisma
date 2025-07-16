@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nefesini Tut, Tesla’yı Kazan!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to bottom, #cceeff, #ffffff);
+      color: #003366;
+      text-align: center;
+      padding: 20px;
+    }
+    header {
+      background: #00bfff;
+      color: white;
+      padding: 30px 10px;
+      border-radius: 10px;
+    }
+    h1 {
+      font-size: 2.2em;
+    }
+    .countdown {
+      font-size: 2em;
+      margin: 20px 0;
+      color: #005577;
+    }
+    .btn {
+      background: #0077cc;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin: 20px 0;
+    }
+    .btn:hover {
+      background: #005fa3;
+    }
+    section {
+      margin-top: 40px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nefesini Tut, Tesla’yı Kazan!</h1>
+    <p>30 saniye denizin altında kalan aileye <strong>Tesla Model Y</strong> hediye!</p>
+    <div class="countdown" id="countdown">Geri Sayım: Yükleniyor...</div>
+    <button class="btn" onclick="alert('Başvuru özelliği sadece görseldir.')">Başvuru Yap</button>
+  </header>
+
+  <section>
+    <h2>Etkinlik Bilgileri</h2>
+    <ul>
+      <li>📅 Tarih: 1 Ağustos 2025'e kadar</li>
+      <li>🌊 Yer: Türkiye genelinde 7 bölgede eş zamanlı</li>
+      <li>👨‍👩‍👧‍👦 Katılım: Aile (en az 1 yetişkin + 1 çocuk)</li>
+      <li>🕒 Görev: Denizde tam dalışla 30 saniye boyunca su altında kalmak</li>
+      <li>🎁 Ödül: En uzun kalan aileye bir adet Tesla Model Y</li>
+      <li>🛟 Güvenlik: Tüm ailelere gözetmen, yedek ekipman ve sualtı kamerası desteği</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 Nefes Yarışması. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script>
+    // Geri sayım
+    const countdown = document.getElementById("countdown");
+    const eventDate = new Date("2025-08-01T00:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance <= 0) {
+        countdown.innerHTML = "Yarışma sona erdi!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `Geri Sayım: ${days}g ${hours}s ${minutes}d ${seconds}sn`;
+    }, 1000);
+  </script>
+
+</body>
+</html>
